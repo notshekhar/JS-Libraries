@@ -12,7 +12,7 @@ function createElement(e, attrs) {
 Element.prototype.remove = function() {
     this.parentElement.removeChild(this)
 }
-Element.prototype.style = function (styles) {
+Element.prototype.css = function (styles) {
     for (let style in styles) {
         this.style[style] = styles[style]
     }
