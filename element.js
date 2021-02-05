@@ -1,4 +1,4 @@
-function new_element(e, attrs) {
+function createElement(e, attrs) {
     let el = document.createElement(e)
     for (let attr in attrs) {
         const value = attrs[attr]
@@ -11,6 +11,11 @@ function new_element(e, attrs) {
 
 Element.prototype.remove = function() {
     this.parentElement.removeChild(this)
+}
+Element.prototype.css = function (styles) {
+    for (let style in styles) {
+        this.style[style] = styles[style]
+    }
 }
 NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     for (var i = this.length - 1; i >= 0; i--) {
