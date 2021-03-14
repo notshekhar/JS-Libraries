@@ -1,5 +1,6 @@
 window.$ = document.querySelector.bind(document)
 Element.prototype.on = Element.prototype.addEventListener
+
 function createElement(e, attrs) {
     let el = document.createElement(e)
     for (let attr in attrs) {
