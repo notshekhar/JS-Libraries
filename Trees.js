@@ -28,8 +28,3 @@ function Trees() {
     }
 }
 
-let trees = new Trees()
-trees.add("shekhar")
-trees.add("she")
-console.log(trees.search("shek"))
-console.log(trees)
