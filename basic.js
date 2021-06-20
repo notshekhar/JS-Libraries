@@ -130,9 +130,8 @@ function simplifyPath(points, tolerance) {
 
 
 //map a number between two numbers
-function map(num, min, max, a, b) {
-    let ratio = (num - min) / (min + max)
-    return (ratio * (a + b)) + a
+function scale(number, inMin, inMax, outMin, outMax) {
+    return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin
 }
 
 
