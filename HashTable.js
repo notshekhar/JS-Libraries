@@ -67,20 +67,20 @@ function HashTable(object, size) {
 
 //----------------------------------TEST------------------------------------
 
-let h = new HashTable({
-    shekhar: "sdjshd",
-    a: "asdssd",
-    b: "sdfdfdf",
-    sjfhdf: "sjhdfjdf",
-    sjfdf: "sjhdfjdf",
-    sjff: "sjhdfjdf",
-    sjf: "sjhdfjdf",
-    sf: "sjhdfjdf",
-    f: "sjhdfjdf",
-})
+// let h = new HashTable({
+//     shekhar: "sdjshd",
+//     a: "asdssd",
+//     b: "sdfdfdf",
+//     sjfhdf: "sjhdfjdf",
+//     sjfdf: "sjhdfjdf",
+//     sjff: "sjhdfjdf",
+//     sjf: "sjhdfjdf",
+//     sf: "sjhdfjdf",
+//     f: "sjhdfjdf",
+// })
 
-console.log(h._)
-console.log(h.get("shekhar"))
-console.log(h.delete("shekhar"))
-console.log(h.get("shekhar"))
-console.log(h._)
+// console.log(h._)
+// console.log(h.get("shekhar"))
+// console.log(h.delete("shekhar"))
+// console.log(h.get("shekhar"))
+// console.log(h._)
