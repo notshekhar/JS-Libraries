@@ -3,7 +3,7 @@ function HashTable(object, size) {
     this._ = new Array(this.length)
     this.size = 0
 
-    this.hash = function (key) {
+    const hash = function (key) {
         let h = 1
         let keyLength = key.length
         for (let i = 0; i < keyLength; i++) {
@@ -26,7 +26,7 @@ function HashTable(object, size) {
         this._ = newHashTable._
     }
     this.has = function (key) {
-        let index = this.hash(key)
+        let index = hash.call(this, key)
         if (!this._[index]) return false
         return this._[index].find((e) => e[0] == key) ? true : false
     }
@@ -35,7 +35,7 @@ function HashTable(object, size) {
         let loadFactor = this.length / this.size
         if (loadFactor < 0.8) resize.call(this)
 
-        let index = this.hash(key)
+        let index = hash.call(this, key)
 
         if (this.has(key)) return false
 
@@ -50,14 +50,14 @@ function HashTable(object, size) {
     }
 
     this.get = function (key) {
-        let index = this.hash(key)
+        let index = hash.call(this, key)
         if (!this._[index]) return false
         let find = this._[index].find((e) => e[0] == key)
         if (!find) return false
         return find[1]
     }
     this.delete = function (key) {
-        let index = this.hash(key)
+        let index = hash.call(this, key)
         if (!this._[index]) return false
         if (!this.has(key)) return false
         this._[index] = this._[index].filter((e) => e[0] != key)
@@ -67,20 +67,20 @@ function HashTable(object, size) {
 
 //----------------------------------TEST------------------------------------
 
-// let h = new HashTable({
-//     shekhar: "sdjshd",
-//     a: "asdssd",
-//     b: "sdfdfdf",
-//     sjfhdf: "sjhdfjdf",
-//     sjfdf: "sjhdfjdf",
-//     sjff: "sjhdfjdf",
-//     sjf: "sjhdfjdf",
-//     sf: "sjhdfjdf",
-//     f: "sjhdfjdf",
-// })
+let h = new HashTable({
+    shekhar: "sdjshd",
+    a: "asdssd",
+    b: "sdfdfdf",
+    sjfhdf: "sjhdfjdf",
+    sjfdf: "sjhdfjdf",
+    sjff: "sjhdfjdf",
+    sjf: "sjhdfjdf",
+    sf: "sjhdfjdf",
+    f: "sjhdfjdf",
+})
 
-// console.log(h._)
-// console.log(h.get("shekhar"))
-// console.log(h.delete("shekhar"))
-// console.log(h.get("shekhar"))
-// console.log(h._)
+console.log(h._)
+console.log(h.get("shekhar"))
+console.log(h.delete("shekhar"))
+console.log(h.get("shekhar"))
+console.log(h._)
