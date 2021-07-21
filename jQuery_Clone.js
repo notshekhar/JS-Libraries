@@ -23,24 +23,28 @@ $.get = function ({ url, data = {}, success = () => {} }) {
     )
 }
 
-$.random = function(min, max) {
+$.random = function (min, max) {
     return Math.random() * (max - min + 1) + min
 }
-$.limit = function(value, min, max) {
+$.limit = function (value, min, max) {
     if (value > min && value < max) return value
     if (value < min) return min
     if (value > max) return max
 }
-$.scale = function(number, inMin, inMax, outMin, outMax) {
-    return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+$.scale = function (number, inMin, inMax, outMin, outMax) {
+    return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin
 }
-$.canvas = function(canvas){
-    if(canvas instanceof HTMLElement) return new Canvas(canvas)
-    if(canvas instanceof Element) return new Canvas(canvas[0])
-    if(typeof canvas == "string" || canvas instanceof String) return new Canvas(new Element(document.querySelector(canvas)))
+$.canvas = function (canvas) {
+    if (canvas instanceof HTMLElement) return new Canvas(canvas)
+    if (canvas instanceof Element) return new Canvas(canvas[0])
+    if (typeof canvas == "string" || canvas instanceof String)
+        return new Canvas(new Element(document.querySelector(canvas)))
 }
-class Canvas{
-    constructor(canvas){
+$.reverseString = function (str) {
+    return str == "" ? "" : reverseString(str.slice(1)) + str[0]
+}
+class Canvas {
+    constructor(canvas) {
         this.canvas = canvas
         this.ctx = canvas.getContext("2d")
     }
@@ -54,11 +58,11 @@ class Canvas{
         this.ctx.lineTo(nx, ny)
         this.ctx.stroke()
     }
-    clearCanvas(color){
+    clearCanvas(color) {
         this.ctx.fillStyle = color || "black"
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
     }
-    rect({x, y, width, fill, stroke, strokeWidth, strokeColor, fillColor}){
+    rect({ x, y, width, fill, stroke, strokeWidth, strokeColor, fillColor }) {
         //code
     }
 }
