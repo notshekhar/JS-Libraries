@@ -94,14 +94,15 @@ function QuadTree({ x, y, x2, y2 }, capacity) {
     }
 }
 
-function point(x, y) {
-    return { x, y }
+function Point(x, y) {
+    this.x = x
+    this.y = y
 }
 let counter = 0
 let root = new QuadTree({ x: 0, y: 0, x2: 100, y2: 100 }, 4)
 
 for (let i = 0; i < 1000; i++) {
-    let p = point(Math.random() * 100, Math.random() * 100)
+    let p = new Point(Math.random() * 100, Math.random() * 100)
     root.insert(p)
 }
 let range = new Boundary(10, 10, 20, 20)
