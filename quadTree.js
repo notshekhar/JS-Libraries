@@ -1,3 +1,8 @@
+function Point(x, y) {
+    this.x = x
+    this.y = y
+}
+
 function Boundary(x, y, x2, y2) {
     this.x = x
     this.y = y
@@ -13,10 +18,10 @@ function Boundary(x, y, x2, y2) {
     }
     this.intersects = function (range) {
         return (
-            this.contains({ x: range.x, y: range.y }) ||
-            this.contains({ x: range.x2, y: range.y }) ||
-            this.contains({ x: range.x, y: range.y2 }) ||
-            this.contains({ x: range.x2, y: range.y2 })
+            this.contains(new Point(range.x, range.y)) ||
+            this.contains(new Point(range.x2, range.y)) ||
+            this.contains(new Point(range.x, range.y2)) ||
+            this.contains(new Point(range.x2, range.y2))
         )
     }
 }
@@ -94,10 +99,7 @@ function QuadTree({ x, y, x2, y2 }, capacity) {
     }
 }
 
-function Point(x, y) {
-    this.x = x
-    this.y = y
-}
+
 let counter = 0
 let root = new QuadTree({ x: 0, y: 0, x2: 100, y2: 100 }, 4)
 
