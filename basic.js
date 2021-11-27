@@ -175,7 +175,7 @@ function reshape(arr, shape) {
     console.log(arr.length, mul)
 
     if (arr.length != mul) {
-        console.error(`cannot reshape array of size ${arr.length} into shape (${shape.map(e=>`${e}`).join(", ")})`)
+        console.error(`cannot reshape array of size ${arr.length} into shape (${shape.map(e => `${e}`).join(", ")})`)
         return
     }
 
@@ -183,7 +183,7 @@ function reshape(arr, shape) {
     let array = arr
     // let arr = array
     let a = []
-    for (let i = 0; i < shape[0]; i++) {  
+    for (let i = 0; i < shape[0]; i++) {
         a.push([])
     }
     for (let i = 0; i < a.length; i++) {
@@ -206,4 +206,15 @@ function reshape(arr, shape) {
 
     // }
     // return a
+}
+
+function isPalindrome(str) {
+    if (str.length == 0 || str.length == 1) return true
+    if (str[0] == str[str.length - 1]) return isPalindrome(str.substring(1, str.length - 1))
+    return false
+}
+
+function dec2bin(n, res = "") {
+    if (n == 0) return res
+    return dec2bin(parseInt(n / 2), n % 2 + res)
 }
